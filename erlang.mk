@@ -6596,7 +6596,7 @@ concuerror-$1-$2: test-build | $(ERLANG_MK_TMP)/Concuerror/bin/concuerror $(CONC
 	$(ERLANG_MK_TMP)/Concuerror/bin/concuerror \
 		--pa $(CURDIR)/ebin --pa $(TEST_DIR) \
 		-o $(CONCUERROR_LOGS_DIR)/concuerror-$1-$2.txt \
-		$(CONCUERROR_OPTS) -m $1 -t $2 -v 7
+		$$(CONCUERROR_OPTS) -m $1 -t $2
 endef
 
 $(foreach test,$(CONCUERROR_TESTS),$(eval $(call concuerror_target,$(firstword $(subst :, ,$(test))),$(lastword $(subst :, ,$(test))))))
